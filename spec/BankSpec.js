@@ -11,6 +11,18 @@ describe("Bank Class", function() {
       })
     
   })
+  describe('Credit method', function() {
+    beforeEach(function () {
+      bank.credit(5)
+    })
+    it ("Adds to the balance",function() {
+      expect(bank.balance).toEqual(5)
+    })
+    it ("Checks statement has the transaction",function() {
+      expect(bank.print_statement()).toEqual(['date || credit || debit || balance', 'Date || 5 ||  || 5'] )
+    })
+  
+})
 
 
 
