@@ -17,25 +17,25 @@ describe("Bank Class", function() {
       date = bank.date()
     })
     it ("Adds to the balance",function() {
-      expect(bank.balance).toEqual(5)
+      expect(bank.balance).toEqual(5.00)
     })
     it ("Checks statement has the transaction",function() {
-      expect(bank.print_statement()).toEqual(['date || credit || debit || balance', ("" + date +' || 5 ||  || 5')] )
+      expect(bank.print_statement()).toEqual(['date || credit || debit || balance', ("" + date +' || 5.00 || || 5.00')] )
     })
   
 })
 
 describe('debit method ', function() {
   beforeEach(function () {
-    bank.credit(100)
-    bank.debit(50)
+    bank.credit(100.00)
+    bank.debit(50.00)
     date = bank.date()
   })
   it ("Checks balance from beforeEach function called in spec",function() {
-    expect(bank.balance).toEqual(50)
+    expect(bank.balance).toEqual(50.00)
   })
   it ("Checks statement has the transaction",function() {
-    expect(bank.print_statement()).toEqual(['date || credit || debit || balance',("" + date +" || 100 ||  || 100"),("" + date +" ||  || 50 || 50")] )
+    expect(bank.print_statement()).toEqual(['date || credit || debit || balance',("" + date +" || 100.00 || || 100.00"),("" + date +" || || 50.00 || 50.00")] )
   
   
   })

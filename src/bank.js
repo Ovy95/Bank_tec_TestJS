@@ -1,22 +1,38 @@
+
+
 class Bank {
 
   transactions = ["date || credit || debit || balance"]
-  balance = 0
+  balance = 0.00
 
+  
   print_statement(){
+    console.log(this.transactions.join("\r\n"))
     return this.transactions
   }
 
   credit(total){
-    var date = this.date()
     this.balance += total 
-    this.transactions.push(date+ " || " + total + " || "+ " || " + this.balance)
+
+    var date = this.date()
+    var current_balance = this.balance
+    current_balance = this.int_to_float(current_balance)
+    total = this.int_to_float(total)
+
+
+    this.transactions.push(date+ " || " + total + " ||"+ " || " + current_balance)
   }
 
   debit(total){
-    var date = this.date()
     this.balance -= total 
-    this.transactions.push(date+ " || "  + " || " + total + " || " + this.balance)
+
+
+    var date = this.date()
+    var current_balance = this.balance
+    current_balance = this.int_to_float(current_balance)
+    total = this.int_to_float(total)
+
+    this.transactions.push(date+ " ||"  + " || " + total + " || " + current_balance)
   }
 
   date(){
@@ -29,6 +45,11 @@ class Bank {
     var date_formatted = today.toString()
 
     return date_formatted
+  }
+
+  int_to_float(number){
+    number.toFixed(2)
+    return number.toFixed(2)
   }
 
 
