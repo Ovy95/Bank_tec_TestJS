@@ -16,11 +16,11 @@ class Bank {
 
     var date = this.date()
     var current_balance = this.balance
-    current_balance = this.int_to_float(current_balance)
-    total = this.int_to_float(total)
+    current_balance = this.int_to_strfloat(current_balance)
+    total = this.int_to_strfloat(total)
 
+    this.transactions.splice(1,0,(date+ " || " + total + " ||"+ " || " + current_balance ))
 
-    this.transactions.push(date+ " || " + total + " ||"+ " || " + current_balance)
   }
 
   debit(total){
@@ -29,10 +29,10 @@ class Bank {
 
     var date = this.date()
     var current_balance = this.balance
-    current_balance = this.int_to_float(current_balance)
-    total = this.int_to_float(total)
-
-    this.transactions.push(date+ " ||"  + " || " + total + " || " + current_balance)
+    current_balance = this.int_to_strfloat(current_balance)
+    total = this.int_to_strfloat(total)
+    this.transactions.splice(1,0,(date+ " ||"  + " || " + total + " || " + current_balance))
+    // this.transactions.push(date+ " ||"  + " || " + total + " || " + current_balance)
   }
 
   date(){
@@ -47,7 +47,7 @@ class Bank {
     return date_formatted
   }
 
-  int_to_float(number){
+  int_to_strfloat(number){
     number.toFixed(2)
     return number.toFixed(2)
   }
