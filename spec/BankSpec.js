@@ -7,7 +7,7 @@ describe("Bank Class", function() {
 
   describe('Print_statement method', function() {
       it ("Returns an empty statement",function() {
-        expect(bank.print_statement()).toEqual(['date || credit || debit || balance']);
+        expect(bank.print_statement()).toEqual('date || credit || debit || balance');
       })
     
   })
@@ -20,7 +20,7 @@ describe("Bank Class", function() {
       expect(bank.balance).toEqual(5.00)
     })
     it ("Checks statement has the transaction",function() {
-      expect(bank.print_statement()).toEqual(['date || credit || debit || balance', ("" + date +' || 5.00 || || 5.00')] )
+      expect(bank.print_statement()).toEqual('date || credit || debit || balance\r\n'+( ""+ date +' || 5.00 || || 5.00'))
     })
   
 })
@@ -35,7 +35,7 @@ describe('debit method ', function() {
     expect(bank.balance).toEqual(50.00)
   })
   it ("Checks statement has the transaction",function() {
-    expect(bank.print_statement()).toEqual(['date || credit || debit || balance',("" + date +" || 100.00 || || 100.00"),("" + date +" || || 50.00 || 50.00")] )
+    expect(bank.print_statement()).toEqual('date || credit || debit || balance\r\n'+("" + date +" || 100.00 || || 100.00\r\n")+("" + date +" || || 50.00 || 50.00") )
   
   
   })

@@ -8,7 +8,7 @@ class Bank {
   
   print_statement(){
     console.log(this.transactions.join("\r\n"))
-    return this.transactions
+    return this.transactions.join("\r\n")
   }
 
   credit(total){
