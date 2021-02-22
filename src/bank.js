@@ -21,8 +21,10 @@ class Bank {
   }
 
   debit(total){
+    if(total > this.balance) {
+      throw new Error("Insufficient Funds in the account");
+    }
     this.balance -= total 
-
 
     var date = this.get_date()
 

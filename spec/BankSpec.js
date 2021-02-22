@@ -39,6 +39,10 @@ describe("Bank Class", function() {
       expect(bank.print_statement()).toEqual('date || credit || debit || balance\r\n'+("" + date +" || || 50.00 || 50.00\r\n")+("" + date +" || 100.00 || || 100.00") )
     })
 
+    it ("It returns an error when trying to debit more then total in the account ",function() {
+      expect(() => bank.debit(1000)).toThrow(new Error('Insufficient Funds in the account'));
+    })
+
 })
 
   describe('Matches Acceptance criteria', function() {
@@ -55,7 +59,6 @@ describe("Bank Class", function() {
     it ("Matches the order In print statements",function() {
       expect(bank.print_statement()).toEqual('date || credit || debit || balance\r\n'+date+' || || 500.00 || 2500.00\r\n'+date+' || 2000.00 || || 3000.00\r\n'+date+' || 1000.00 || || 1000.00')
     })
-  
   })
 
 });
