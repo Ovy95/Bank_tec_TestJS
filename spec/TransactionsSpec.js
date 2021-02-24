@@ -4,6 +4,7 @@ describe("TransActions Class", function() {
   beforeEach (function () {
    bank = new Bank()
    transaction = new TransActions()
+   dates = new Dates()
   });
 
   describe('Print_statement method', function() {
@@ -14,9 +15,9 @@ describe("TransActions Class", function() {
 
   describe('Passing in Credit then Debit to check printStatement method is correct ', function() {
     beforeEach(function () {
-      bank.credit(100.00)
+      bank.credit(100.00,)
       bank.debit(50.00)
-      date = bank.get_date()
+      date = bank.dates.get_date()
     })
     
     it ("Checks statement has the 2 transactions passed into it in order",function() {
@@ -27,7 +28,7 @@ describe("TransActions Class", function() {
 
   describe('Matches Acceptance criteria', function() {
     beforeEach(function () {
-      date = bank.get_date()
+      date = bank.dates.get_date()
       bank.credit(1000.00)
       bank.credit(2000.00)
       bank.debit(500.00)
@@ -40,7 +41,7 @@ describe("TransActions Class", function() {
 
   describe('TESTING Get Date method', function() {
     beforeEach(function () {
-      date = bank.get_date()
+      date = bank.dates.get_date()
     })
   
     it ("Prints out a statements with different dates",function() {
