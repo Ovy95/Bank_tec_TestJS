@@ -33,7 +33,6 @@ describe("Bank Class", function() {
 
   describe('Matches Acceptance criteria interms of adding up the total', function() {
     beforeEach(function () {
-      console.log(dates)
       date = bank.dates.get_date()
       bank.credit(1000.00)
       bank.credit(2000.00)
