@@ -2,11 +2,10 @@ describe("Bank Class", function() {
   var bank;
 
   beforeEach (function () {
-
    bank = new Bank();
-  });
+   dates = new Dates();
 
-  
+  });
   describe('Credit method Testing', function() {
     beforeEach(function () {
       bank.credit(5)
@@ -18,10 +17,9 @@ describe("Bank Class", function() {
 
   describe('Debit method testing ', function() {
     beforeEach(function () {
+      // date = bank.dates.get_date()
       bank.credit(100.00)
       bank.debit(50.00)
-      date = bank.get_date()
-  
     })
     it ("CHECKS balance is equal to 50. After Crediting 100 then debit 50 ",function() {
       expect(bank.balance).toEqual(50.00)
@@ -35,7 +33,8 @@ describe("Bank Class", function() {
 
   describe('Matches Acceptance criteria interms of adding up the total', function() {
     beforeEach(function () {
-      date = bank.get_date()
+      console.log(dates)
+      date = bank.dates.get_date()
       bank.credit(1000.00)
       bank.credit(2000.00)
       bank.debit(500.00)
@@ -44,12 +43,11 @@ describe("Bank Class", function() {
     it ("Credit 1000 Credit 2000 Debit 500 Balance is equal to 2500",function() {
       expect(bank.balance).toEqual(2500) 
     })
-    
   })
 
   describe('TESTING Get Date method', function() {
     beforeEach(function () {
-      date = bank.get_date()
+      date = bank.dates.get_date()
     })
 
     it ("Checks the balance is correct from using different dates",function() {
@@ -60,6 +58,5 @@ describe("Bank Class", function() {
       expect(bank.balance).toEqual(100)
     })
   })
-
-  
+ 
 });
