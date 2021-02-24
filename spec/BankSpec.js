@@ -71,7 +71,7 @@ describe("Bank Class", function() {
       expect(bank.get_date(new Date(2020,04,5))).toEqual('05/05/2020') 
     })
 
-    it ("Prints out a statement for 5th of May",function() {
+    it ("Prints out a statements with different dates",function() {
       bank.credit(100,'22/02/2021')
       bank.credit(100,'23/02/2021')
       bank.debit(50,'23/02/2021')
