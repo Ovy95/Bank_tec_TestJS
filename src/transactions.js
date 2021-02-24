@@ -12,9 +12,9 @@ class TransActions {
 
   filter_transactions_array(array) {
     if (array[3] == "DEBIT"){
-      this.statement.splice(1,0,(array[0]+ " || " + array[1] + " ||"+ " || " + array[2] ))
-    }else if(array[3] == "CREDIT"){
       this.statement.splice(1,0,(array[0]+ " ||"  + " || " + array[1] + " || " + array[2]))
+    }else if(array[3] == "CREDIT"){
+        this.statement.splice(1,0,(array[0]+ " || " + array[1] + " ||"+ " || " + array[2] ))
     }
   }
 

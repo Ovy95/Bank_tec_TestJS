@@ -1,26 +1,17 @@
 class Bank {
  constructor() {
-   this.trans = new TransActions();
+   this.transaction = new TransActions();
  }
-  transactions = ["date || credit || debit || balance"]
   balance = 0.00
   date = this.get_date()
-  print_statement(){
-    return this.transactions.join("\r\n")
-  }
-
+ 
   credit(total,date){
     this.balance += total 
     if (date==null){
     var date = this.get_date()
     }
     var current_balance = this.balance
-    this.trans.get_tranaction([date,total,current_balance,"CREDIT"])
-
-    current_balance = this.int_to_strfloat(current_balance)
-    total = this.int_to_strfloat(total)
-
-    this.transactions.splice(1,0,(date+ " || " + total + " ||"+ " || " + current_balance ))
+    this.transaction.get_tranaction([date,total,current_balance,"CREDIT"])
   }
 
   debit(total,date){
@@ -33,13 +24,7 @@ class Bank {
     this.balance -= total 
     
     var current_balance = this.balance
-    this.trans.get_tranaction([date,total,current_balance,"DEBIT"])
-
-
-    current_balance = this.int_to_strfloat(current_balance)
-    total = this.int_to_strfloat(total)
-    
-    this.transactions.splice(1,0,(date+ " ||"  + " || " + total + " || " + current_balance))
+    this.transaction.get_tranaction([date,total,current_balance,"DEBIT"])
   }
 
   get_date(today = new Date()){
@@ -50,11 +35,6 @@ class Bank {
 
     today = today.toString()
     return today
-  }
-
-  int_to_strfloat(number){
-    number.toFixed(2)
-    return number.toFixed(2)
   }
 
 }
