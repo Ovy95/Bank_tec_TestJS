@@ -76,9 +76,7 @@ describe("Bank Class", function() {
       bank.credit(100,'23/02/2021')
       bank.debit(50,'23/02/2021')
       bank.debit(50)
-      console.log(bank.print_statement())
       expect(bank.print_statement()).toEqual('date || credit || debit || balance\r\n'+date+' || || 50.00 || 100.00\r\n'+'23/02/2021 || || 50.00 || 150.00\r\n'+'23/02/2021 || 100.00 || || 200.00\r\n'+'22/02/2021 || 100.00 || || 100.00')
     })
   })
-
 });

@@ -1,5 +1,7 @@
 class Bank {
-
+ constructor() {
+   this.trans = new TransActions();
+ }
   transactions = ["date || credit || debit || balance"]
   balance = 0.00
   date = this.get_date()
@@ -13,6 +15,8 @@ class Bank {
     var date = this.get_date()
     }
     var current_balance = this.balance
+    this.trans.get_tranaction([date,total,current_balance,"CREDIT"])
+
     current_balance = this.int_to_strfloat(current_balance)
     total = this.int_to_strfloat(total)
 
@@ -26,10 +30,11 @@ class Bank {
     if (date==null){
       var date = this.get_date()
     }
-
     this.balance -= total 
     
     var current_balance = this.balance
+    this.trans.get_tranaction([date,total,current_balance,"DEBIT"])
+
 
     current_balance = this.int_to_strfloat(current_balance)
     total = this.int_to_strfloat(total)
