@@ -1,5 +1,9 @@
 # Bank tech test
 
+## The Task
+
+Having attempted this in Ruby and not being able to solve the problem during my time at Makers. I decided to attempt this again in JavaScript to help grow my process better. The task is to create a bank app to the specifications listed in the Requirements Section.
+
 ### Technology used
 
 ### Development
@@ -41,6 +45,26 @@ date || credit || debit || balance
 13/01/2012 || 2000.00 || || 3000.00
 10/01/2012 || 1000.00 || || 1000.00
 ```
+
+## The Approch
+
+---
+- TDD
+- I completed the task using one class. Which can be seen in early commits. With all passing tests
+- After completed the task I decided to split up the Bank class into three classes as it was doing too much
+- I created a 2nd class which was Transactions, this was for formatting transactions and for printing statement method
+- The 3rd class I created was the Date method as this didn't need to be in the Bank class 
+- Having splitting up the class this allowed for calling methods from other Classes    
+
+
+
+Classes:
+  - Bank class - Contains Debit and Credit method. Inside both these methods calls are made to other methods from the other classes, such as get_date and get_Transactions 
+  - Transaction class - Gets Debit and Credit data. Filters the information to be displayed by called Print_statement method
+  - Date class - contains one method which gets current date to be used inside with Credit and Debit
+
+
+
 ## User Stories
 
 ```
