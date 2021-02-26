@@ -16,9 +16,7 @@ class Bank {
   }
 
   debit(total,date){
-    if(total > this.balance) {
-      throw new Error("Insufficient Funds in the account");
-    }
+    this.decline_transaction(total,this.balance)
     if (date==null){
       var date = this.dates.get_date()
     }
@@ -27,5 +25,12 @@ class Bank {
     var current_balance = this.balance
     this.transaction.get_tranaction([date,total,current_balance,"DEBIT"])
   }
+
+  decline_transaction(debit, balance){
+    if(debit > balance) {
+      throw new Error("Insufficient Funds in the account");
+    }
+  }
+
 }
 
