@@ -11,7 +11,7 @@ describe("Bank Class", function() {
       bank.credit(5)
     })
     it ("Adds 5 credits to balance",function() {
-      expect(bank.balance).toEqual(5.00)
+      expect(bank.account_Balance).toEqual(5.00)
     })
 })
 
@@ -22,7 +22,7 @@ describe("Bank Class", function() {
       bank.debit(50.00)
     })
     it ("CHECKS balance is equal to 50. After Crediting 100 then debit 50 ",function() {
-      expect(bank.balance).toEqual(50.00)
+      expect(bank.account_Balance).toEqual(50.00)
     })
 
     it ("It returns an error when trying to debit more then total in the account ",function() {
@@ -40,7 +40,7 @@ describe("Bank Class", function() {
     })
 
     it ("Credit 1000 Credit 2000 Debit 500 Balance is equal to 2500",function() {
-      expect(bank.balance).toEqual(2500) 
+      expect(bank.account_Balance).toEqual(2500) 
     })
   })
 
@@ -54,7 +54,7 @@ describe("Bank Class", function() {
       bank.credit(100,'23/02/2021')
       bank.debit(50,'23/02/2021')
       bank.debit(50)
-      expect(bank.balance).toEqual(100)
+      expect(bank.account_Balance).toEqual(100)
     })
   })
  

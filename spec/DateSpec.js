@@ -22,6 +22,7 @@ describe("DATES Class", function() {
     my_birthday = new Date(2020,04,05)
  })
    it ("Prints out a custom date entered",function() {
+     console.log(my_birthday)
      expect(dates.get_date(my_birthday)).toEqual("05/05/2020")
    })
  })
